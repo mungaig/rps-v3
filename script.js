@@ -20,27 +20,35 @@ function playRound(humanChoice, computerChoice){
     console.log('You: ' + humanChoice);
     console.log('Computer: ' + computerChoice);
 
-   /* if(humanChoice === computerChoice){
-        console.log('Draw! You both choose ' + humanChoice);
-    } else if(humanChoice === 'rock' && computerChoice === 'paper'){
-        console.log('You lose! paper beats rock');
-        computerScore += 1;
-    } else if(humanChoice === 'paper' && computerChoice === 'scissors'){
-        console.log('You lose! scissors beats paper');
-        computerScore += 1;
-    } else if(humanChoice === 'scissors' && computerChoice === 'rock'){
-        console.log('You lose! rock beats scissors')
-    } else if(humanChoice === 'paper' && computerChoice === 'rock'){
-        console.log('You win! paper beats rock');
-        humanScore += 1;
-    } else if(humanChoice === 'scissors' && computerChoice === 'paper'){
-        console.log('You win! scissors beats paper');
-        humanScore += 1;
-    } else if(humanChoice === 'rock' && computerChoice === 'scissors'){
-        console.log('You win! rock beats scissors');
-        humanScore += 1;
-    }
- } */
+    switch(true){
+        case humanChoice === 'rock' && computerChoice === 'scissors':            
+            console.log('You win! rock beats scissors');
+            humanScore += 1;
+        break;
+        case humanChoice === 'scissors' && computerChoice === 'paper':
+            console.log('You win! scissors beats paper');
+            humanScore += 1;
+        break;
+        case humanChoice === 'paper' && computerChoice === 'rock':
+            console.log('You win! paper beats rock');
+            humanScore += 1;
+        break;
+        case computerChoice === 'rock' && humanChoice === 'scissors':
+            console.log('You lose! rock beats scissors');
+            computerScore += 1;
+        break;
+        case computerChoice === 'scissors' && humanChoice === 'paper':
+            console.log('You lose! scissors beats paper');
+            computerScore += 1;
+        break;
+        case computerChoice === 'paper' && humanChoice === 'rock':
+            console.log('You lose! paper beats rock');
+            computerScore += 1;
+        break;
+        default:
+            console.log('Draw! You both chose ' + humanChoice);
+    }  
+}
 
  for(let i = 0; i < 5; i++){
     const humanChoice = getHumanChoice();
